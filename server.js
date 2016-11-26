@@ -1,8 +1,17 @@
 const http = require('http');
+const url = require('url');
 
-http.createServer(function(req, res) {
-  res.writeHead(200, {'Content-type': 'text/plain'});
-  res.write('Hello there! How are you?');
-  res.end();
-  console.log('server running on port 8888');
-}).listen(8888);
+function start(route, handle) {
+  function onRequest(request, response) {
+    var pathname = url.parse(request.url).pathname;
+    console.log('Request for ' + pathname + ' received.');
+
+    route(handle, pathname, response);
+
+  }
+  http.createServer(onRequest).listen(8888);
+  console.log('Server has started');
+}
+
+
+exports.start = start;
