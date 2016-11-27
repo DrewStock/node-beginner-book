@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/DrewStock/node-beginner-book/issues"
   },
-  "homepage": "https://github.com/DrewStock/node-beginner-book#readme"
+  "homepage": "https://github.com/DrewStock/node-beginner-book#readme",
+  "dependencies": {
+    "formidable": "^1.0.17"
+  }
 }
